@@ -1,0 +1,162 @@
+---
+title: Curcumin Treated T-C1 Cell Proliferation (MTS)
+author: Davit Sargsyan
+output:
+  html_document:
+    theme: null
+    highlight: null
+    media: screen
+    css: style.css
+    toc: true
+---
+Date: `r Sys.time()`
+
+# Design
+
+T-C1 cells were dosed with serially diluted (.../2) Curcumin. Each of the 3 96-well plate contained 6 replicas for each of the 9 doses, plus DMSO control and medium control (background). Plates were analyzed at 24, 48 and 72 hours. Each plate was red twice. The results are presented below.
+
+# Analysis
+
+Data was analyzed using R 3.2.1. The estimates and plots were obtained using my robust 4-parameter curve fitting R package 'ricf'. 
+
+## Raw Data
+
+```{r raw, echo=FALSE, results='asis', message=FALSE, error=FALSE, warning=FALSE}
+options(scipen = 999,
+        warn = -1)
+
+setwd("C:\\Users\\dsargsy\\Desktop\\PhD\\Lab")
+require(data.table)
+require(reshape2)
+require(knitr)
+require(ricf)
+
+dilut.nM <- rev(c(format(100000/2^(0:8),
+                         scientific = TRUE, 
+                         digits = 3),
+                  "DMSO Only"))
+
+plates <- fread("TC1_Curcumin_MTS_Plates_Exp1.csv", sep = ",", header = TRUE)
+maps <- fread("TC1_Curcumin_MTS_Map_Exp1.csv", sep = ",", header = TRUE)
+
+d1 <- reshape(data = plates, 
+              varying = list(names(plates)[5:ncol(plates)]),
+              direction = "long",
+              v.names = "Value")
+
+d1$Treatment <- reshape(data = maps, 
+                        varying = list(names(maps)[4:ncol(maps)]),
+                        direction = "long",
+                        v.names = "Treatment")$Treatment
+
+d1$time <- NULL
+
+# Median of background, i.e. medium only, per plate
+d1[, bgrnd := median(Value[Treatment == "None"]),
+   by = list(Plate, Reading)]
+
+# Subtract background
+d1[, no.bgrnd := Value - bgrnd]
+
+# Separate treated cells
+trt <- subset(d1, !(Treatment %in% c("None", "MTS")))
+plot(trt$Value ~ rev(trt$Treatment), 
+     col = as.numeric(factor(trt$Hour)),
+     xlab = "Concentration",
+     ylab = "Value",
+     main = "All Plates, Raw Data (24, 48 and 72 Hour)",
+     xaxt = "n")
+
+dd <- dcast(trt, Row + Treatment ~ Reading + Hour, value.var = "Value")
+dd$Treatment[dd$Treatment == "DMSO"] <- 9
+
+# Analysis
+dd$dilut <- 100000/2^as.numeric(as.character(dd$Treatment))
+m1 <- f.robicf(data.frame(conc = log10(dd$dilut),
+                          dd[, c(3, 6, 4, 7, 5, 8)]))
+s1 <- summary(m1, export = TRUE)
+
+# for (i in 1:length(s1)) {
+#   cat(kable(s1[[i]],
+#           format="html",
+#           row.names = TRUE,
+#           digits = 3,
+#           align = "l",
+#           caption = names(s1)[i]))
+# cat("<br><br>")
+# }
+# 
+# plot(m1,
+#      xlab = "Curcumin Concentration (nM)",
+#      ylab = "Raw Cell Counts (Units?)",
+#      smooth  = TRUE,
+#      xmarks = dilut.nM)
+
+lines(m1,
+      smooth = TRUE,
+      xlab = "Log of Curcumin Concentration (nM)",
+      ylab = "Raw Cell Counts (Units?)",
+      main = "All Plates, Raw Data (24, 48 and 72 Hour)")
+```
+
+## Normalized Data
+
+Norm. Response = 100*(Treatment - Median(Plate Background))/(Row DMSO - Median(Plate Background))
+
+```{r norm, echo=FALSE, results='asis', message=FALSE, error=FALSE, warning=FALSE}
+options(scipen = 999,
+        warn = -1)
+
+trt[, DMSO := no.bgrnd[Treatment == "DMSO"],
+    by = list(Plate, Reading, Row)]
+trt[, Normilized := 100*no.bgrnd/DMSO]
+
+trt <- subset(trt, Treatment != "DMSO")
+
+plot(trt$Normilized ~ rev(trt$Treatment), 
+     col = as.numeric(factor(trt$Hour)),
+     xlab = "Concentration",
+     ylab = "Value",
+     main = "All Plates, Normalized (24, 48 and 72 Hour)",
+     xaxt = "n")
+
+dd <- dcast(trt, Row + Treatment ~ Reading + Hour, value.var = "Normilized")
+
+# Analysis
+dd$dilut <- 100000/2^as.numeric(as.character(dd$Treatment))
+m1 <- f.robicf(data.frame(conc = log10(dd$dilut),
+                          dd[, c(3, 6, 4, 7, 5, 8)]),
+               ecf = c(20, 50, 80))
+s1 <- summary(m1, export = TRUE)
+
+for (i in 1:length(s1)) {
+  cat(kable(s1[[i]],
+          format="html",
+          row.names = TRUE,
+          digits = 3,
+          align = "l",
+          caption = names(s1)[i]))
+cat("<br><br>")
+}
+
+plot(m1,
+     xlab = "Curcumin Concentration (nM)",
+     ylab = "Normalized Response (% DMSO)",
+     smooth  = TRUE,
+     xmarks = dilut.nM[-1])
+
+lines(m1,
+      smooth = TRUE,
+      xlab = "Log of Curcumin Concentration (nM)",
+      ylab = "Normalized Response (% DMSO)")
+```
+
+# Discussion
+
+1. Although data followed 4-parameter model well for 24 and 72 hour read-outs, 48 hour read-out had major issues. 
+
+2. Variance decreased from higher to lower doses but the robust model assumes homogeneity of variance across concentrations. Although this might not have influenced the estimates in this case, generally a transformation of the response might be needed to stabilize variance.
+
+3. Hook effect was observed at lower doses. A model that can describe the hook might be more appropriate, especially if the hook effect becomes more pronounced.
+
+4. Smaller intervals between the doses can be beneficial as we can get smoother curves around IC50 values and decrease standard errors of the estimates.

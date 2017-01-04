@@ -1,0 +1,44 @@
+html {
+	background: #66FFFF;
+}
+
+body {
+	background: #FFFFFF;
+	color: #000000;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14pt;
+	font-weight: normal;
+    margin-right: 100px;
+	margin-left: 100px;
+	margin-top:50px;
+	margin-bottom: 50px;
+	text-align:left;
+	border: 1px solid gray;
+}
+
+p {
+    margin-right: 20px;
+	margin-left: 20px;
+	margin-top:0em;
+	margin-bottom: 2em;
+	text-align:left;
+}
+
+table, th, td {
+   margin-right: 20px;
+   margin-left: 20px;
+   border: 1px solid black;
+   border-collapse: collapse;
+   text-align: left;
+}
+
+caption {
+    text-align:left;
+	margin-right: 20px;
+    margin-left: 20px; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+   margin-right: 20px;
+   margin-left: 20px;
+}
