@@ -1,0 +1,9 @@
+Row,2,3,4,5,6,7,8,9
+A,Albumine_2000ug/mL,Albumine_2000ug/mL,Albumine_2000ug/mL,BCA_Only,BCA_Only,BCA_Only,BCA_Only,BCA_Only
+B,Albumine_1000ug/mL,Albumine_1000ug/mL,Albumine_1000ug/mL,SFN_10uM,SFN_10uM,SFN_10uM,DMSO_0.1%,No_Treatment
+C,Albumine_500ug/mL,Albumine_500ug/mL,Albumine_500ug/mL,SFN_5uM,SFN_5uM,SFN_5uM,DMSO_0.1%,No_Treatment
+D,Albumine_250ug/mL,Albumine_250ug/mL,Albumine_250ug/mL,SFN_2.5uM,SFN_2.5uM,SFN_2.5uM,DMSO_0.1%,No_Treatment
+E,Albumine_125ug/mL,Albumine_125ug/mL,Albumine_125ug/mL,Echinatin_80uM,Echinatin_80uM,Echinatin_80uM,TSA_100uM_5AZA_500uM,BCA_Only
+F,Albumine_62.5ug/mL,Albumine_62.5ug/mL,Albumine_62.5ug/mL,Echinatin_40uM,Echinatin_40uM,Echinatin_40uM,TSA_100uM_5AZA_500uM,BCA_Only
+G,Albumine_31.25ug/mL,Albumine_31.25ug/mL,Albumine_31.25ug/mL,Echinatin_20uM,Echinatin_20uM,Echinatin_20uM,TSA_100uM_5AZA_500uM,BCA_Only
+H,Albumine_0ug/mL,Albumine_0ug/mL,Albumine_0ug/mL,BCA_Only,BCA_Only,BCA_Only,BCA_Only,BCA_Only

@@ -1,0 +1,9 @@
+Row,1,2,3,4,5,6,7,8,9,10
+A,H2O,H2O,H2O,H2O,H2O,H2O,H2O,H2O,H2O,H2O
+B,H2O,Albumine_125ug/mL,Albumine_125ug/mL,Albumine_125ug/mL,SFN_50uM,SFN_50uM,SFN_50uM,TSA_50uM_5AZA_250uM,No_Treatment,H2O
+C,H2O,Albumine_250ug/mL,Albumine_250ug/mL,Albumine_250ug/mL,SFN_25uM,SFN_25uM,SFN_25uM,TSA_50uM_5AZA_250uM,No_Treatment,H2O
+D,H2O,Albumine_500ug/mL,Albumine_500ug/mL,Albumine_500ug/mL,SFN_12.5uM,SFN_12.5uM,SFN_12.5uM,TSA_50uM_5AZA_250uM,No_Treatment,H2O
+E,H2O,Albumine_1000ug/mL,Albumine_1000ug/mL,Albumine_1000ug/mL,Echinatin_80uM,Echinatin_80uM,Echinatin_80uM,DMSO_0.1%,BCA_Only,H2O
+F,H2O,Albumine_2000ug/mL,Albumine_2000ug/mL,Albumine_2000ug/mL,Echinatin_40uM,Echinatin_40uM,Echinatin_40uM,DMSO_0.1%,BCA_Only,H2O
+G,H2O,Albumine_0ug/mL,Albumine_0ug/mL,Albumine_0ug/mL,Echinatin_20uM,Echinatin_20uM,Echinatin_20uM,DMSO_0.1%,BCA_Only,H2O
+H,H2O,H2O,H2O,H2O,H2O,H2O,H2O,H2O,H2O,H2O
