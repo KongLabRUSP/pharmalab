@@ -1,0 +1,216 @@
+# Reference library:
+​​# Reference genome by Illumina (not used here):
+https://support.illumina.com/sequencing/sequencing_software/igenome.html
+
+# Most common version is  mouse-UCSC-mm9， here is the link (used here):
+ftp://igenome:G3nom3s4u@ussd-ftp.illumina.com/Mus_musculus/UCSC/mm9/Mus_musculus_UCSC_mm9.tar.gz
+
+# John's version of Bismark:
+https://github.com/jsh58/Bismark
+###################################################
+Procedure:
+
+1. Coped '...fastq.gz' zipped files from Dr. Kong's external hard drive, 4 at a time.
+File locations on the hard drive (8 + 8):
+/media/kong_lab/MS Words & Powerpoint/From Isilon/Kong/MethylSeq/FASTQ_Kong_MethylSeq_Pool1
+/media/kong_lab/MS Words & Powerpoint/From Isilon/Kong/MethylSeq/FASTQ_Kong_MethylSeq_Pool2
+
+These zipped files were copied into:
+/home/kong_lab/Desktop/Link to Davit/Yue_03172017/fastq_tmp
+
+Each .gz file is about 2 Gb
+
+2. Unzipped .fastq files to the same folder '.../fastq_tmp'
+
+3. Deleted .gz files
+
+4. Follow Step0 thorough Step3
+
+5. Deleted .fastq file; moved all intermediate files (.bam, .txt) to:
+/media/kong_lab/MS Words & Powerpoint/Davit MethylSeq/Yue_MethylSeq_Processed_03202017
+
+The result is 16 .cov files. Proceed to Step4
+
+###################################################
+# Change working directory
+cd /home/kong_lab/Documents/Davit/Yue_03172017/
+# NOTE: didn't change working directory for Bismark!
+
+# # Step0: prepare reference genome
+# # NOTE: file 'genome.fa' is a FastA file from: Mus_musculus_UCSC_mm9.2/Mus_musculus/UCSC/mm9/Sequence/WholeGenomeFasta
+# # Create a new folder: /home/kong_lab/Documents/Davit/mm9.2_for_bismark
+# /home/kong_lab/Documents/Davit/Bismark-master_john/bismark_genome_preparation /home/kong_lab/Documents/Davit/mm9.2_for_bismark
+# # NOTE: Use the prepared mice genome mm9 from Renyi's project folder
+
+# Step1: Align FastQ files (i.e.samples)
+# NOTE: run in parallel by opening a new terminal for each fastq file
+
+# Batch1:
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C1_S1_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C2_S2_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C26_S3_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C29_S4_R1_001.fastq
+
+# Batch2: 
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C42_S5_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark | \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark | \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C47_S6_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark | \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark | \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C65_S7_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark | \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark | \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C70_S8_R1_001.fastq
+
+# Batch3: 
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C14_S3_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C20_S4_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C34_S5_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C40_S6_R1_001.fastq
+
+# Batch4: 
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C54_S7_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C60_S8_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C75_S1_R1_001.fastq
+
+/home/kong_lab/Documents/Davit/Bismark-master_john/bismark \
+/home/kong_lab/Documents/Davit/mm9.2_for_bismark \
+/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp/C79_S2_R1_001.fastq
+
+##################################################
+# NOTE: the .bam files will be created in the Home directory
+# (at this point, in '/home/kong_lab')
+# Move them to '/home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp', 
+# NOTE: a copy of each Phython script must be kept in this directory
+
+##################################################
+# Step2: Extract methylated/unmethylated counts from alignment files
+# NOTE: run in parallel by opening a new terminal for each bam file
+
+# Change working directory (in each opened terminal):
+cd /home/kong_lab/Documents/Davit/Yue_03172017/fastq_tmp
+ls
+
+# Batch1 (Pool1):
+
+samtools view -h C1_S1_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C1_S1_R1_001.cov
+
+samtools view -h C2_S2_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C2_S2_R1_001.cov
+
+samtools view -h C26_S3_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C26_S3_R1_001.cov
+
+samtools view -h C29_S4_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C29_S4_R1_001.cov
+
+# Batch2 (Pool1):
+
+samtools view -h C42_S5_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C42_S5_R1_001.cov
+
+samtools view -h C47_S6_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C47_S6_R1_001.cov
+
+samtools view -h C65_S7_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C65_S7_R1_001.cov
+
+samtools view -h C70_S8_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C70_S8_R1_001.cov
+
+# Batch3 (Pool2):
+
+samtools view -h C14_S3_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C14_S3_R1_001.cov
+
+samtools view -h C20_S4_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C20_S4_R1_001.cov
+
+samtools view -h C34_S5_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C34_S5_R1_001.cov
+
+samtools view -h C40_S6_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C40_S6_R1_001.cov
+
+# Batch4 (Pool2):
+
+samtools view -h C54_S7_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C54_S7_R1_001.cov
+
+samtools view -h C60_S8_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C60_S8_R1_001.cov
+
+samtools view -h C75_S1_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C75_S1_R1_001.cov
+
+samtools view -h C79_S2_R1_001_bismark_bt2.bam | \
+python extract_CpG_data.py -i - -o C79_S2_R1_001.cov
+
+##################################################
+# Step 3: Cluster CpG sites into regions
+python combine_CpG_sites.py -o combined.csv \
+C1_S1_R1_001.cov \
+C2_S2_R1_001.cov \
+C26_S3_R1_001.cov \
+C29_S4_R1_001.cov \
+C42_S5_R1_001.cov \
+C47_S6_R1_001.cov \
+C65_S7_R1_001.cov \
+C70_S8_R1_001.cov \
+C14_S3_R1_001.cov \
+C20_S4_R1_001.cov \
+C34_S5_R1_001.cov \
+C40_S6_R1_001.cov \
+C54_S7_R1_001.cov \
+C60_S8_R1_001.cov \
+C75_S1_R1_001.cov \
+C79_S2_R1_001.cov
+
+##################################################
+
+CONTINUE HERE! 03/22/2017, 11:00 PM
+
+# Step 4: Test regions for differential methylation
+Rscript findDMRs.r -i combined.csv -o results.csv \
+-n Control,Exptl C15_S1_R1_001,C19_S2_R1_001 C33_S3_R1_001,C36_S4_R1_001
