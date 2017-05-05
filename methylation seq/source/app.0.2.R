@@ -1,7 +1,7 @@
 # Sources:
 # Zoom: http://shiny.rstudio.com/gallery/plot-interaction-zoom.html
 # Hover: http://stackoverflow.com/questions/38917101/how-do-i-show-the-y-value-on-tooltip-while-hover-in-ggplot2
-options(shiny.maxRequestSize=30*1024^2) 
+options(shiny.maxRequestSize=120*1024^2) 
 require(shiny)
 require(data.table)
 library(ggplot2)

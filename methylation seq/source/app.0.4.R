@@ -40,6 +40,7 @@ ui <- fluidPage(
     uiOutput("sample"),
     uiOutput("gene"),
     plotOutput("plot1", 
+               height = 600,
                dblclick = "plot1_dblclick",
                brush = brushOpts(id = "plot1_brush",
                                  resetOnNew = TRUE)),
@@ -139,10 +140,11 @@ server <- function(input, output) {
     gn <- droplevels(subset(dt.g,
                             chr == input$chr))
     
-    selectInput(inputId = "gene",
-                label = "Select Gene",
-                choices = c("All", levels(gn$gene)[order(levels(gn$gene))]),
-                selected = "All")
+    selectizeInput(inputId = "gene",
+                   label = "Select Gene",
+                   choices = c("All", levels(gn$gene)[order(levels(gn$gene))]),
+                   selected = "All",
+                   options = list(maxOptions = 10^6))
   })
   
   # Plot area selection----

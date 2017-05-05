@@ -24,9 +24,23 @@ Each .gz file is about 2 Gb
 
 3. Deleted .gz files
 
-4. Follow Step0 thorough Step3
+4. Quality Control: 
+	On Linux, type 'fastqc' in the Terminal. NOTE: buggy, does not work
+	
+   On Windows:
+   4a. Download FastQC zip file here:
+      https://www.bioinformatics.babraham.ac.uk/projects/download.html
+	  Scroll down to FastQC and download 'FastQC v0.11.5 (Win/Linux zip file)' file
+   4b. Unzip the folder to 'C:/'
+   4c. Go to the unzipped folder 'C:\fastqc_v0.11.5\FastQC' and click on 'run_fastqc.bat'   
+       This will open a CMD window first, then the FastQC graphic user interface (GUI)
+	   
+   4d. When application opens, go to File->Open and open 'xx.fastq' files one by one.
+   4e. Generate reports and save them with the data.
 
-5. Deleted .fastq file; moved all intermediate files (.bam, .txt) to:
+5. Follow Step0 thorough Step3
+
+6. Deleted .fastq file; moved all intermediate files (.bam, .txt) to:
 /media/kong_lab/MS Words & Powerpoint/Davit MethylSeq/Yue_MethylSeq_Processed_03202017
 
 The result is 16 .cov files. Proceed to Step4
@@ -208,9 +222,8 @@ C75_S1_R1_001.cov \
 C79_S2_R1_001.cov
 
 ##################################################
-
-CONTINUE HERE! 03/22/2017, 11:00 PM
-
 # Step 4: Test regions for differential methylation
+# a. Compare 18 week old 'AOM+DSS' vs. 'AOM+DSS+Curcumin'
 Rscript findDMRs.r -i combined.csv -o results.csv \
--n Control,Exptl C15_S1_R1_001,C19_S2_R1_001 C33_S3_R1_001,C36_S4_R1_001
+-n Control,Exptl \
+C34_S5_R1_001,C40_S6_R1_001 C54_S7_R1_001,C60_S8_R1_001
