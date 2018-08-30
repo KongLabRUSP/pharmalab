@@ -1,0 +1,56 @@
+##  Project: Study of Diabetes in MES13 cells
+### Study ID: 
+### Scientist: Wenji Li, David, Renyi
+### Data Analysis: Davit Sargsyan 
+### Created: 09/11/2017 
+
+---    
+
+## Table of Contents
+[File Legend](#leg)
+[Daily Logs](#logs)  
+[Results](#results)   
+[Files](#files)
+
+## File Legend<a name="files"></a>
+### Scripts
+***rodica_ngs_v1.R***: initial script. UA vs. control only. Using transcriptome distances.    
+***rodica_ngs_v1.R***: current(08/28/2018) script. All 5 comparisons. Using gene distances.    
+
+### Data
+***Heatmap Output (3).csv***: RNA expressions (log2 differences).    
+***combined_fr5c5_Yen_anno.xlsx***: initial dataset from Renyi. Distance is by transcript.    
+***combined_fr5c5_Yen_raw_by_gene.csv***: second dataset from Renyi; distance is by gene.    
+
+## Initial request
+Rodica P. Bunaciu, Mon, Aug 13, 5:09 PM
+
+Dear Davit and Renyi, 
+
+Could you please help us with the interpreting the methylation data. We want to know which genes are most preeminently affected by methylation by RA . Which of those are hold in common with SFN but not ( or lesser degree) by UA. Ultimately , we also want to know if changes revealed by RNA-seq reflect changes in methylation . 
+
+For the RNA -seq we narrowed the dataset to about 101 candidates ( attached). 
+
+Thank you very much, 
+
+-petruta
+
+---
+
+Rodica P. Bunaciu, Aug 22, 2018, 11:23 AM
+
+Dear Davit, 
+
+Your expertise and willingness to help with the data analysis is highly appreciated. 
+
+Attached (Heatmap output) is the list of the genes we think are the most responsive to our various treatments. ( Based on RNA-seq and our previous experience with this cell line and its behavior to retinoic acid (RA) treatment vs. control untreated. )
+
+I was not able yet to check them in the methylation data set. The only way I could do it would be to take each of the 110 genes shortlisted from RNA seq and to see if they appear in the methylation set ( combined fr5c5 file). I do not know to make a script to automate that either. So, if you could help us integrating this shortlist of 110 with the methylation set I would be really grateful. 
+
+
+Also, if you could analyze the entire data (RNA seq and methylation) from a  fresh point of view ( incomparable higher bioinformatic skills than mine but probably not with a retinoid mindset ) that would be great also. 
+
+
+Thank you !
+
+-petruta
