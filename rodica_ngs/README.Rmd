@@ -1,22 +1,27 @@
 ##  Project: Study of Diabetes in MES13 cells
 ### Study ID: 
-### Scientist: Wenji Li, David, Renyi
+### Scientist: Rodica Petruta Bunaciu
 ### Data Analysis: Davit Sargsyan 
-### Created: 09/11/2017 
+### Created: 08/27/2018 
 
 ---    
 
 ## Table of Contents
+[Daily Logs](#logs) 
 [File Legend](#leg)
-[Daily Logs](#logs)  
 [Results](#results)   
-[Files](#files)
+
+## Daily Logs<a name="logs"></a>
+### 09/27/2018
+* Project created
+
+### 10/11/2018
+* RNA vs. DNA
 
 ## File Legend<a name="files"></a>
 ### Scripts
 ***rodica_ngs_v1.R***: initial script. UA vs. control only. Using transcriptome distances.    
 ***rodica_ngs_v1.R***: current(08/28/2018) script. All 5 comparisons. Using gene distances.    
-
 ### Data
 ***Heatmap Output (3).csv***: RNA expressions (log2 differences).    
 ***combined_fr5c5_Yen_anno.xlsx***: initial dataset from Renyi. Distance is by transcript.    
