@@ -6,7 +6,7 @@
 # | Modified: 08/28/2018: plot al 5 comparisons at once; use updated data from Renyi| 
 # |                       with distance by gene, not by transcript.                 |
 # |---------------------------------------------------------------------------------|
-# sink(file = "tmp/log_rodica_ngs_v2.txt")
+# sink(file = "tmp/log_rodica_ngs_v3.txt")
 
 # Header----
 require(data.table)
