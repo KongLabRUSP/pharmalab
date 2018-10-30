@@ -12,11 +12,14 @@
 [Results](#results)   
 
 ## Daily Logs<a name="logs"></a>
-### 09/27/2018
-* Project created
+### 10/28/2018
+*
 
 ### 10/11/2018
 * RNA vs. DNA
+
+### 09/27/2018
+* Project created
 
 ## File Legend<a name="files"></a>
 ### Scripts
@@ -27,35 +30,24 @@
 ***combined_fr5c5_Yen_anno.xlsx***: initial dataset from Renyi. Distance is by transcript.    
 ***combined_fr5c5_Yen_raw_by_gene.csv***: second dataset from Renyi; distance is by gene.    
 
-## Initial request
-Rodica P. Bunaciu, Mon, Aug 13, 5:09 PM
+## From Rodica Petruta Bunaciu's emails
+### Thu, Oct 11, 2018 at 5:07 PM
+Dear Davit,     
+Thank you so much for helping with this analysis. It would be great to compare:    
+1. RA vs C     
+2. UA vs C    
+3. SFN vs C    
+4. RA SFN vs C    
+5. RA UA vs C 
 
-Dear Davit and Renyi, 
-
-Could you please help us with the interpreting the methylation data. We want to know which genes are most preeminently affected by methylation by RA . Which of those are hold in common with SFN but not ( or lesser degree) by UA. Ultimately , we also want to know if changes revealed by RNA-seq reflect changes in methylation . 
-
+### Mon, Aug 13, 5:09 PM
+Dear Davit and Renyi,    
+Could you please help us with the interpreting the methylation data. We want to know which genes are most preeminently affected by methylation by RA . Which of those are hold in common with SFN but not ( or lesser degree) by UA. Ultimately , we also want to know if changes revealed by RNA-seq reflect changes in methylation .     
 For the RNA -seq we narrowed the dataset to about 101 candidates ( attached). 
 
-Thank you very much, 
-
--petruta
-
----
-
-Rodica P. Bunaciu, Aug 22, 2018, 11:23 AM
-
-Dear Davit, 
-
-Your expertise and willingness to help with the data analysis is highly appreciated. 
-
-Attached (Heatmap output) is the list of the genes we think are the most responsive to our various treatments. ( Based on RNA-seq and our previous experience with this cell line and its behavior to retinoic acid (RA) treatment vs. control untreated. )
-
-I was not able yet to check them in the methylation data set. The only way I could do it would be to take each of the 110 genes shortlisted from RNA seq and to see if they appear in the methylation set ( combined fr5c5 file). I do not know to make a script to automate that either. So, if you could help us integrating this shortlist of 110 with the methylation set I would be really grateful. 
-
-
+### Aug 22, 2018, 11:23 AM
+Dear Davit,     
+Your expertise and willingness to help with the data analysis is highly appreciated.     
+Attached (Heatmap output) is the list of the genes we think are the most responsive to our various treatments. ( Based on RNA-seq and our previous experience with this cell line and its behavior to retinoic acid (RA) treatment vs. control untreated. )    
+I was not able yet to check them in the methylation data set. The only way I could do it would be to take each of the 110 genes shortlisted from RNA seq and to see if they appear in the methylation set ( combined fr5c5 file). I do not know to make a script to automate that either. So, if you could help us integrating this shortlist of 110 with the methylation set I would be really grateful.     
 Also, if you could analyze the entire data (RNA seq and methylation) from a  fresh point of view ( incomparable higher bioinformatic skills than mine but probably not with a retinoid mindset ) that would be great also. 
-
-
-Thank you !
-
--petruta
