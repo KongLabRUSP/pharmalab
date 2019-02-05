@@ -71,7 +71,7 @@ rna.fpm
 tmp <- merge(rna,
              rna.fpm,
              by = "gene")
-plot(tmp$C.x ~ tmp$C.y)
+plot(tmp$C ~ tmp$C_fpm)
 rm(tmp)
 gc()
 
@@ -304,10 +304,10 @@ qnt <- quantile(x = log2(dt1$C_fpm + 1),
                 prob = 0.90)
 qnt
 # ~7.12
-qnt <- quantile(x =dt1$ C_fpm,
-                prob = 0.90)
-qnt
-# 137.98
+# qnt <- quantile(x =dt1$ C_fpm,
+#                 prob = 0.90)
+# qnt
+# # 137.98
 
 # Select genes with high expression in Control group (90st quantile)
 # significant differences in RA groups vs Control, and no significant 
